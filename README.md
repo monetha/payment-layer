@@ -10,19 +10,19 @@
 
 ### Abstract
 
-Decentralized transaction layer which is based on enforceable contracts without third party between buyer and seller (or service provider). This layer can be used with or without our Reputation layer.
+The Payments layer of Monetha's Reputation Framework is a decentralized transaction layer based on enforceable contracts between the buyer and the seller (or service provider) with no involvement of a third party. It can be used alongside Monetha's Reputation layer or separately from it.
 
-Merchants or Service providers are ​able​ ​to​ ​accept​ ​Ethereum​ ​based​ ​cryptocurrencies​.
+Merchants (for our purposes the term includes the providers of both goods and services) are ​able​ ​to​ ​accept​ ​Ethereum​ ​based​ ​cryptocurrencies​.
 
-#### Key principles
+#### Key Principles
 
 * Make​ ​the​ ​payment​ ​process​ ​simple​ ​and​ ​efficient;
-* Make​ ​accepting​ ​payments​ ​for​ Merchants or Service Providers ​cheaper​, ​faster and more transparent;
+* Make​ ​accepting​ ​payments​ ​for​ merchants ​faster and more transparent;
 * Bring​ ​the​​ ​Ethereum-based​ ​​token​ ​economy​​ ​to​ ​the​ ​​mainstream.
 
-### Payments layer design
+### Payments Layer Design
 
-Payment layer design resembles an escrow that you would normally encounter in vending machines. Where the customer's money is held in an "escrow area" pending successful completion of the transaction of the items between customer and merchant. If a problem occurs and merchant can no longer process with a transaction a customer can withdraw his funds. If no problem occurs, the funds are being released to a merchant
+The design of the Payments layer resembles the escrow mechanism you would normally encounter in vending machines. There the customer's money is held in an "escrow area" until the transaction between the customer and the merchant, which results in an item exchange, is successfully completed. If a problem occurs and the merchant can no longer process the transaction, the customer can withdraw his or her funds. If no problem occurs, the funds are released to the merchant.
 
 Our development is driven by the following principles:
 
@@ -35,81 +35,86 @@ Our development is driven by the following principles:
 
 **Customer**
 
-Person or entity that is trying to purchase goods or service. Depending on a use case this can be an application representing an entity or a person.
+A person or entity that purchases goods or services. Depending on the use case this can be an application representing an entity or person.
 
-* can interact with a merchant or service provider either directly through Ethereum network or via other communication interfaces (service provider 3rd party application)
-* Customer doesn't have any particular requirements and in majority of cases can be a simple Ethereum address.
-* Customer receives a payback for each purchase equal to 0.2% from his purchase in Monetha vouchers that can be used for discount with other purchases from merchants using Monetha payment layer
-* participates in a transaction with a Merchant through his payment processor contract
-* initiates the purchase flow
+Customers:
+
+* Can interact with Merchants either directly through the Ethereum network or via other communication interfaces (service provider 3rd party applications);
+* Do not have any particular requirements and in the majority of cases can be a simple Ethereum address;
+* Receive a payback for each purchase. It is equal to 0.2% from the purchase amount in Monetha vouchers and can be used to discount other purchases from Merchants using Monetha's Payments layer;
+* Participate in transactions with Merchants through their payment processor contract;
+* Initiate the purchase flow.
 
 **Merchant**
 
-Person or entity that provides goods or service and would like to receive payment in Ethereum based crypto-currency.
+A person or entity that provides goods or services and would like to receive payment in an Ethereum based crypto-currency.
 
-* owns a set of contracts representing her entity on a blockchain
-* maintains operations history on a blockchain
-* triggers escrow to release funds in case of successful operations
-* has control of refunding and canceling an order
+Merchants:
+
+* Own a set of contracts representing their entity on the blockchain;
+* Maintain their operations history on the blockchain;
+* Trigger escrow to release funds in case of successful operations;
+* Have control over refunding or canceling an order.
 
 **Monetha**
 
-Monetha entity provides paybacks for customers using the payment gateway.
+Monetha's role is to provide paybacks to customers using the payment gateway.
 
-* provides a payback to all customers making purchases with Merchants using Monetha's deployed and maintained MonethaGateway contract
-* allows application of customer discount without Merchant's loss of funds
+Monetha:
+
+* Provides a payback to all Customers making purchases from Merchants using Monetha's deployed and maintained MonethaGateway contract;
+* Allows the application of customer discounts without the Merchant losing funds.
 
 #### Implementation
 
-Implementation is designed to be as decentralized as possible to maintain level of trust between 2 parties.
+The implementation is designed to be as decentralized as possible to maintain a level of trust between the parties.
 
-Example implementation:
+Implementation examples:
 
-* Monetha payment gateway [https://www.monetha.io/e-commerce](https://www.monetha.io/e-commerce)
-* ICO pass analyzer **TBD: provide a link to repository and demo app url**
+* Monetha's payment gateway [https://www.monetha.io/e-commerce](https://www.monetha.io/e-commerce)
+* ICO pass analyzer **TBD: link to repository and demo app url**
 
-![](diagrams/payment-layer-concept.jpg)
+![payment-layer-concept.jpg](diagrams/payment-layer-concept.jpg)
 
-##### Merchant's contracts
+##### Merchant's Contracts
 
-* MerchantWallet
-  * Accepts payments for orders
-  * Acts as a merchant's profile
-  * *Source:* [MerchantWallet](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MerchantWallet.sol)
-* MerchantDealHistory
-  * Stores hash of deal conditions between merchant and customer
-  * Shows a history of all transactions made by particular merchant
-  * History enables to see evolution of reputation points for both parties.
-  * **TBD** merchant deal history is used as a FactProvider in [reputation-leayer](https://gitlab.com/monetha/reputation-layer)
-  * *Source:* [MerchantDealsHistory](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MerchantDealsHistory.sol)
-* PaymentProcessor
-  * Implementation of an escrow where customer stakes his money and awaiting for goods/service to be exchanges
-  * Customer can cancel the order
-  * Merchant can refund order after it has been processed
-  * *Source:* [PaymentProcessor](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/PaymentProcessor.sol)
+* MerchantWallet:
+  * Accepts payments for orders;
+  * Acts as a Merchant's profile;
+  * *Source:* [MerchantWallet](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MerchantWallet.sol).
+* MerchantDealHistory:
+  * Stores the hash of deal conditions between the Merchant and the Customer;
+  * Shows a history of all transactions made by a particular Merchant;
+  * Enables to see the evolution of reputation points for both parties.
+  * **TBD** The Merchant's deal history is used as a FactProvider in [reputation-layer](https://gitlab.com/monetha/reputation-layer);
+  * *Source:* [MerchantDealsHistory](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MerchantDealsHistory.sol).
+* PaymentProcessor:
+  * Implementation of an escrow mechanism where Customers stake their money and wait for the goods/service to be exchanged;
+  * The Customer can cancel the order;
+  * The Merchant can refund the order after it has been processed;
+  * *Source:* [PaymentProcessor](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/PaymentProcessor.sol).
 
-##### Monetha's contracts
+##### Monetha's Contracts
 
-* MonethaGateway
-  * Ensures that Monetha receives 1.5% fee to be able to cover paybacks and discounts
-  * Ensures that customer's applied discount gets transferred back to him
-  * Ensures that customer receives a payback of 0.2%
-  * *Source:* [MonethaGateway](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MonethaGateway.sol)
-* MonethaVoucher
-  * Allow MonethaGateway and other trusted parties to exchange vouchers into Ether to return discount amount to customers
-  * Register and track amount of vouchers that are emitted as paybacks to customers
-  * *Source:* [MonethaVoucher](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MonethaVoucher.sol)
+* MonethaGateway:
+  * Ensures that Monetha receives a 1.5% fee to be able to cover paybacks and discounts;
+  * Ensures that the Customer's applied discount gets transferred back to him or her;
+  * Ensures that the Customer receives a payback of 0.2%;
+  * *Source:* [MonethaGateway](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MonethaGateway.sol).
+* MonethaVoucher (work in progress):
+  * Allows MonethaGateway and other trusted parties to exchange vouchers into ether to return the discount amount to customers;
+  * Registers and tracks the amount of vouchers that are emitted as paybacks to Customers;
+  * *Source:* [MonethaVoucher](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MonethaVoucher.sol).
 
 ### Token Usage
 
-**_TBD_** 
-Payback voucher amount capacity is locked on a capacity of MTH tokens staked in Monetha voucher contract
+Payback voucher amount is locked at the capacity of MTH tokens staked in the MonethaVoucher contract.
 
-### Forking the Reputation Layer
+### Forking the Payment Layer
 
 Our implementation can be forked or similar ones can be built.
 
-The solutions are in favour of our implementation:
+The solutions are in favor of our implementation:
 
 * Provide a valuable and useful solution;
-* Paybacks and discounts that are maintained and guaranteed by Monetha.
+* Offer paybacks and discounts maintained and guaranteed by Monetha.
