@@ -81,18 +81,18 @@ Implementation examples:
 * MerchantWallet:
   * Accepts payments for orders;
   * Acts as a Merchant's profile;
-  * *Source:* [MerchantWallet](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MerchantWallet.sol).
+  * *Source:* [MerchantWallet](https://github.com/monetha/payment-contracts/blob/master/contracts/MerchantWallet.sol).
 * MerchantDealHistory:
   * Stores the hash of deal conditions between the Merchant and the Customer;
   * Shows a history of all transactions made by a particular Merchant;
   * Enables to see the evolution of reputation points for both parties.
-  * **TBD** The Merchant's deal history is used as a FactProvider in [reputation-layer](https://gitlab.com/monetha/reputation-layer);
-  * *Source:* [MerchantDealsHistory](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MerchantDealsHistory.sol).
+  * **TBD** The Merchant's deal history is used as a FactProvider in [reputation-layer](https://github.com/monetha/reputation-layer);
+  * *Source:* [MerchantDealsHistory](https://github.com/monetha/payment-contracts/blob/master/contracts/MerchantDealsHistory.sol).
 * PaymentProcessor:
   * Implementation of an escrow mechanism where Customers stake their money and wait for the goods/service to be exchanged;
   * The Customer can cancel the order;
   * The Merchant can refund the order after it has been processed;
-  * *Source:* [PaymentProcessor](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/PaymentProcessor.sol).
+  * *Source:* [PaymentProcessor](https://github.com/monetha/payment-contracts/blob/master/contracts/PaymentProcessor.sol).
 
 ##### Monetha's Contracts
 
@@ -100,11 +100,11 @@ Implementation examples:
   * Ensures that Monetha receives a 1.5% fee to be able to cover paybacks and discounts;
   * Ensures that the Customer's applied discount gets transferred back to him or her;
   * Ensures that the Customer receives a payback of 0.2%;
-  * *Source:* [MonethaGateway](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MonethaGateway.sol).
+  * *Source:* [MonethaGateway](https://github.com/monetha/payment-contracts/blob/master/contracts/MonethaGateway.sol).
 * MonethaVoucher (work in progress):
   * Allows MonethaGateway and other trusted parties to exchange vouchers into ether to return the discount amount to customers;
   * Registers and tracks the amount of vouchers that are emitted as paybacks to Customers;
-  * *Source:* [MonethaVoucher](https://gitlab.com/monetha/trust-reputation-smart-contracts/blob/master/contracts/MonethaVoucher.sol).
+  * *Source:* [MonethaVoucher](https://github.com/monetha/payment-contracts/blob/master/contracts/MonethaVoucher.sol).
 
 ### Token Usage
 
