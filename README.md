@@ -105,29 +105,46 @@ The implementation is designed to be as decentralized as possible to maintain a 
   * Github repository for web application [https://github.com/monetha/ico-analyzer-web-app](https://github.com/monetha/ico-analyzer-web-app)
   * Github repository for analysis function run as AWS lambda [https://github.com/monetha/ico-analyzer](https://github.com/monetha/ico-analyzer)
 
-### Token Usage
+### Token Usage and Loyalty program
 
 There are multiple directions how MTH tokens are being utilized in Monetha's ecosystem. Two of the main directions are Paybacks and Tokenholder programs in combination referenced as Monetha's Loyalty program. More token applications are to come while using our [Reputation layer](https://github.com/monetha/reputation-layer)
 
 #### Paybacks
 
-Paybacks are being granted to all customer's who have made an Ether payment through Monetha's payment gateway. A customer receives a payback in Monetha Vouchers (aka MTHV). 
+Paybacks are being granted to all customer's who have made an Ether payment through Monetha's payment gateway. A customer receives a payback in Monetha Vouchers (aka MTHV). Each MTHV is backed by a MTH token. Payback voucher amount is locked at the capacity of MTH tokens staked in the MonethaVoucher contract by Monetha.
 
-1. What is a Payback?
-1. What is Voucher?
-1. Voucher's lifecycle
+Amount of vouchers granted to a user as a payback is converted according exchange rate that is being updated by Monetha on daily basis.
 
-This is done with a help of a [MonethaVoucher](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaVoucher.sol) smart contract which is deployed to Ethereum mainnet and can be found at this address [0x8D6b6F21e4519Ec10F54842CD9C113eE7e50E04a](https://etherscan.io/address/0x8D6b6F21e4519Ec10F54842CD9C113eE7e50E04a)
+This is done with a help of a [MonethaVoucher](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaVoucher.sol) smart contract which is deployed to Ethereum mainnet and can be found at address [0x8D6b6F21e4519Ec10F54842CD9C113eE7e50E04a](https://etherscan.io/address/0x8D6b6F21e4519Ec10F54842CD9C113eE7e50E04a)
 
-Payback voucher amount is locked at the capacity of MTH tokens staked in the MonethaVoucher contract by Monetha. Each payback voucher is based on MTH token staked by Monetha.
-
-Monetha updates Ether exchange rate on a daily basis by collecting and aggregating MTH <-> ETH rate from multiple centralized and decentralized exchanges.
+Monetha vouchers are valid for six months. If unused within that period, they will move back to their respective pools. Monetha vouchers are non transferable
 
 #### Tokenholder program
 
-1. Tokenholders?
-1. Purpose?
-1. Program lifecycle
+All people that have bought or received MTH tokens (aka tokenholders) are eligible to participate in a monthly tokenholders program. It is the program where Monetha stakes 1/3 of monthly revenue that was acquired via Monetha payment gateway allows MTH tokenholder to ​claim​ ​for​ ​vouchers proportionately​ ​to​ ​the​ ​amount​ ​of​ ​MTH​ ​tokens​ ​that​ ​they​ ​hold.
+
+This is done with a help of a [MonethaTokenHoldersProgram](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaTokenHoldersProgram.sol) smart contract which is deployed to Ethereum mainnet and can be found at address [0x4830e1e8D533313d2bb426cF1EF306460f288524](https://etherscan.io/address/0x4830e1e8D533313d2bb426cF1EF306460f288524)
+
+#### How​ ​it​ ​works
+
+* Let’s​ ​say​ ​we​ ​have​ ​1000​ ​investors​ ​as​ ​MTH​ ​holders,​ ​holding​ ​1​ ​MTH​ ​each.​ ​Now,​ ​all
+token​ ​holders​ ​equally​ ​hold​ ​0.1%​ ​of​ ​the​ ​total​ ​token​ ​supply.
+* Let’s​ ​say​ ​Monetha’s​ ​merchants​ ​sold​ ​100​ ​000​ ​ETH​ ​worth​ ​of​ ​goods​ ​and​ ​services​ ​in one​ ​month​ ​and​ ​let’s​ ​say​ ​that​ ​1ETH​ ​=​ ​1MTH.​ ​Because​ ​Monetha​ ​takes​ ​1.5% transaction​ ​fee​ ​from​ ​merchants,​ ​Monetha​ ​will​ ​have​ ​1500​ ​ETH​ ​of​ ​revenue​ ​collected.
+* For​ ​this​ ​scenario,​ ​1⁄3​ ​of​ ​Monetha’s​ ​revenue​ ​means​ ​1⁄3​ ​of​ ​1500​ ​ETH​ ​=​ ​500​ ​ETH. Therefore,​ ​​ ​we​ ​will​ transfer ​500​ ​ETH​ to`MonethaTokenHoldersProgram` contract and initiate a purchase of MTHV tokens for that amount. As a result ​we get​ ​500​ ​MTH​V ​that​ ​is​ ​available​ ​to​ ​use​ ​for​ ​MTH​ ​holders​ ​in​ ​Monetha’s ecosystem.​ ​
+* All​ ​1000​ ​MTH​ ​holders​ ​will​ ​equally​ ​have​ ​the​ ​ability​ ​to​ ​use​ ​500​ ​MTHV ​when​ ​shopping​ ​with​ ​Monetha’s​ ​merchants.​ ​In​ ​this​ ​case,​ ​one​ ​token​ ​holder will​ ​be​ ​able​ ​to​ ​spend​ ​up​ ​to​ ​0.1%​ ​of​ ​500​ ​MTH​ ​(=0.5​ ​MTH​ ​each).
+
+#### Program lifecycle
+
+1. Monetha transfers 1/3 of the revenue that were residing in temporary vault address [0x003a9f226b282539b161f8704b8dbc783c2f7860](https://etherscan.io/address/0x003a9f226b282539b161f8704b8dbc783c2f7860) to a [Monetha Tokenholder contract address](https://etherscan.io/address/0x4830e1e8D533313d2bb426cF1EF306460f288524)
+1. In order to participate in the program tokenholders must transfer their MTH tokens on the 1st day of the month. To do so a person must: 
+    1. Approve transfer of the tokens for the "Monetha Tokenholder program contract" from their address. This can be achieved by executing `approve()` on MTH token smart contract 
+    1. Execute `participate()` method of the [Monetha Tokenholder contract](https://etherscan.io/address/0x4830e1e8D533313d2bb426cF1EF306460f288524)
+1. After 1st day passes a tokenholder can execute `redeem()` method of the [Monetha Tokenholder contract](https://etherscan.io/address/0x4830e1e8D533313d2bb426cF1EF306460f288524) which will result in granting proportional share of MTHV for Monetha revenue share
+1. Day before next month all of the vouchers will be converted into Ether and a new cycle will begin.
+
+If revenue was not claimed it will be transferred to the next month and tokenholders will be able to claim it again.
+
+Token holders can forfeit from the tokenholder program even if they already staked their tokens by executing `cancelParticipation()` method of the [Monetha Tokenholder contract](https://etherscan.io/address/0x4830e1e8D533313d2bb426cF1EF306460f288524)
 
 ### Forking the Payment Layer
 
