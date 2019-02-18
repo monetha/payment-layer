@@ -6,7 +6,7 @@
 * [Payments Layer Design](#payments-layer-design)
   * [Actors](#actors)
   * [Implementation](#implementation)
-* [Token Usage](#token-usage)
+* [Token Usage and Loyalty program](#token-usage-and-loyalty-program)
   * [Paybacks](#paybacks)
   * [Tokenholder program](#tokenholder-program)
 * [Forking the Payment Layer](#forking-the-payment-layer)
@@ -111,17 +111,17 @@ There are multiple directions how MTH tokens are being utilized in Monetha's eco
 
 #### Paybacks
 
-Paybacks are being granted to all customer's who have made an Ether payment through Monetha's payment gateway. A customer receives a payback in Monetha Vouchers (aka MTHV). Each MTHV is backed by a MTH token. Payback voucher amount is locked at the capacity of MTH tokens staked in the MonethaVoucher contract by Monetha.
+Paybacks are being granted to all customer's who have made an Ether payment through Monetha's payment gateway. A customer receives a payback in Monetha Vouchers (aka MTHV). Each MTHV is backed by a MTH token. Payback voucher amount is locked at the capacity of MTH tokens staked in the MonethaVoucher contract by Monetha. A customer can then use those vouchers for discount up to 70% when purchasing through Monetha payment gateway.
 
 Amount of vouchers granted to a user as a payback is converted according exchange rate that is being updated by Monetha on daily basis.
 
 This is done with a help of a [MonethaVoucher](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaVoucher.sol) smart contract which is deployed to Ethereum mainnet and can be found at address [0x8D6b6F21e4519Ec10F54842CD9C113eE7e50E04a](https://etherscan.io/address/0x8D6b6F21e4519Ec10F54842CD9C113eE7e50E04a)
 
-Monetha vouchers are valid for six months. If unused within that period, they will move back to their respective pools. Monetha vouchers are non transferable
+Monetha vouchers are valid for six months. If not used within that period, they will move back to their respective pools. Monetha vouchers are non transferable
 
 #### Tokenholder program
 
-All people that have bought or received MTH tokens (aka tokenholders) are eligible to participate in a monthly tokenholders program. It is the program where Monetha stakes 1/3 of monthly revenue that was acquired via Monetha payment gateway allows MTH tokenholder to ​claim​ ​for​ ​vouchers proportionately​ ​to​ ​the​ ​amount​ ​of​ ​MTH​ ​tokens​ ​that​ ​they​ ​hold.
+All people that have bought or received MTH tokens (aka tokenholders) are eligible to participate in a monthly tokenholders program. It is the program where Monetha stakes 1/3 of monthly revenue that was acquired via Monetha payment gateway and allows MTH tokenholder to ​claim​ ​for​ ​vouchers proportionately​ ​to​ ​the​ ​amount​ ​of​ ​MTH​ ​tokens​ ​that​ ​they​ ​hold.
 
 This is done with a help of a [MonethaTokenHoldersProgram](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaTokenHoldersProgram.sol) smart contract which is deployed to Ethereum mainnet and can be found at address [0x4830e1e8D533313d2bb426cF1EF306460f288524](https://etherscan.io/address/0x4830e1e8D533313d2bb426cF1EF306460f288524)
 
