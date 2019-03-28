@@ -76,7 +76,7 @@ A person or entity that provides goods or services and would like to receive pay
 
 ### Monetha
 
-Monetha's role is to provide paybacks to Customers using the payment gateway and allow to build-up transferable reputation profile when used together Reputation layer. Monetha:
+Monetha's role is to provide paybacks to Customers using the payment gateway and allow to build-up transferable reputation profile when used together with Reputation layer. Monetha:
 
 - Provides a payback to all Customers making purchases from Merchants using Monetha's deployed and maintained MonethaGateway contract;
 - Allows the application of customer discounts without the Merchant losing funds;
