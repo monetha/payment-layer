@@ -32,19 +32,20 @@
 
 ## Abstract
 
-The Payments layer of Monetha's Reputation Framework is a decentralized transaction layer based on enforceable contracts between the buyer and the seller (or service provider) with no involvement of a third party. It can be used alongside Monetha's Reputation layer or separately from it.
+The Payments layer of Monetha's Reputation Framework is a decentralized orders processing layer based on enforceable smart contracts between the buyer and the seller (or service provider) with no involvement of a third party. It can be used alongside Monetha's Reputation layer or separately from it.
 
-Merchants (for our purposes the term includes the providers of both goods and services) are ​able​ ​to​ ​accept​ ​Ethereum​ ​based​ ​cryptocurrencies​.
+Merchants (for our purposes the term includes the providers of both digital or physical goods/services) are ​able​ ​to​ ​accept​ ​Ethereum​ ​based​ ​cryptocurrencies​.
 
 ### Key Principles
 
-- Make​ ​the​ ​payment​ ​process​ ​simple​ ​and​ ​efficient;
-- Make​ ​accepting​ ​payments​ ​for​ merchants ​faster and more transparent;
+- Keep the payment process ​simple​ ​and​ cost ​efficient;
+- Make​ ​order processing transparent for Customers;
+- Make​ it easier for Merchants to ​accept ​crypto payments​;
 - Bring​ ​the​​ ​Ethereum-based​ ​​token​ ​economy​​ ​to​ ​the​ ​​mainstream.
 
 ### Payments Layer Design
 
-The design of the Payments layer resembles the escrow mechanism you would normally encounter in vending machines. There the customer's money is held in an "escrow area" until the transaction between the customer and the merchant, which results in an item exchange, is successfully completed. If a problem occurs and the merchant can no longer process the transaction, the customer can withdraw his or her funds. If no problem occurs, the funds are released to the merchant.
+The design of the Payments layer resembles the escrow mechanism you would normally encounter in vending machines. There the customer's money is held in an "escrow area" until the transaction between the customer and the merchant, which results in an item exchange, is successfully completed. If a problem occurs and the merchant can no longer process the transaction, the customer can withdraw her funds. If no problem occurs, the funds are released to the merchant.
 
 Our development is driven by the following principles:
 
@@ -62,7 +63,6 @@ A person or entity that purchases goods or services. Depending on the use case t
 - Can interact with Merchants either directly through the Ethereum network or via other communication interfaces (service provider 3rd party applications);
 - Do not have any particular requirements and in the majority of cases can be a simple Ethereum address;
 - Receive a payback for each purchase. It is equal to 0.2% from the purchase amount in Monetha vouchers and can be used for applying discount for other purchases using Monetha's Payments layer;
-- Participate in transactions with Merchants through their payment processor contract;
 - Initiate the purchase flow.
 
 ### Merchant
@@ -76,14 +76,15 @@ A person or entity that provides goods or services and would like to receive pay
 
 ### Monetha
 
-Monetha's role is to provide paybacks to customers using the payment gateway. Monetha:
+Monetha's role is to provide paybacks to Customers using the payment gateway and allow to build-up transferable reputation profile when used together Reputation layer. Monetha:
 
 - Provides a payback to all Customers making purchases from Merchants using Monetha's deployed and maintained MonethaGateway contract;
-- Allows the application of customer discounts without the Merchant losing funds.
+- Allows the application of customer discounts without the Merchant losing funds;
+- Makes order processing flow transparent.
 
 ## Implementation
 
-The implementation is designed to be as decentralized as possible to maintain a level of trust between the parties.
+The implementation is designed in a decentralized manner to maintain a high level of trust between the parties.
 
 ![payment-layer-concept.jpg](diagrams/payment-layer-concept.jpg)
 
