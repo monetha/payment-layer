@@ -17,6 +17,7 @@
   - [Payment flow initiated by Customer](#payment-flow-initiated-by-customer)
   - [Payment flow initiated by Merchant](#payment-flow-initiated-by-merchant)
   - [Implementation examples](#implementation-examples)
+  - [Repositories](#repositories)
 - [Token Usage and Loyalty program](#token-usage-and-loyalty-program)
   - [Paybacks](#paybacks)
     - [Voucher contract addresses](#voucher-contract-addresses)
@@ -25,7 +26,7 @@
     - [Program lifecycle](#program-lifecycle)
     - [Tokenholder program contract addresses](#tokenholder-program-contract-addresses)
   - [Dispute resolution](#dispute-resolution)
-    - [Claim lifecycle](#claim-lifecycle)
+    - [Dispute resolution flow](#dispute-resolution-flow)
     - [Claim handler contract addresses](#claim-handler-contract-addresses)
 - [Forking the Payment Layer](#forking-the-payment-layer)
 
@@ -153,6 +154,12 @@ The payment flow can be initiated in 2 ways:
 - ICO pass analyzer [website](https://icoanalyzer.monetha.io)
   - Github repository for web application [https://github.com/monetha/ico-analyzer-web-app](https://github.com/monetha/ico-analyzer-web-app)
   - Github repository for analysis function run as AWS lambda [https://github.com/monetha/ico-analyzer](https://github.com/monetha/ico-analyzer)
+
+### Repositories
+
+- Payment smart contracts: [https://github.com/monetha/payment-contracts](https://github.com/monetha/payment-contracts)
+- Loyalty smart contracts: [https://github.com/monetha/loyalty-contracts](https://github.com/monetha/loyalty-contracts)
+- Payment GO SDK: [https://github.com/monetha/payment-go-sdk](https://github.com/monetha/payment-go-sdk)
 
 ## Token Usage and Loyalty program
 
