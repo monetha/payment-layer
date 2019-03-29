@@ -121,7 +121,7 @@ The implementation is designed in a decentralized manner to maintain a high leve
 - MonethaClaimHandler:
   - Allows Customer and Merchant to register their dispute on chain;
   - Multiple claims can be created for a deal;
-  - Customer's and Merchant's MTH tokens needs to be staked for succesfull resolution
+  - Customer's and Merchant's MTH tokens needs to be staked for successful resolution
   - *Source:* [MonethaClaimHandler](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaClaimHandler.sol).
 
 ## De-centralized payment layer usage scenarios
@@ -163,6 +163,13 @@ The payment flow can be initiated in 2 ways:
 - Payment GO SDK: [https://github.com/monetha/payment-go-sdk](https://github.com/monetha/payment-go-sdk)
 
 ## Token Usage and Loyalty program
+
+Monetha MTH tokens are used throughout the payment layer and more applications are planned while using [Reputation layer](https://github.com/monetha/reputation-layer). Current MTH token applications can be seen in the following modules.
+
+- Loyalty program
+  - [Paybacks](#paybacks)
+  - [Tokenholder program](tokehnholder-program)
+- [Dispute resolution](#dispute-resolution)
 
 There are multiple directions how MTH tokens are being utilized in Monetha's ecosystem. Two of the main directions are [Paybacks](#paybacks) and [Tokenholder program](tokehnholder-program) in combination referenced as Monetha's Loyalty program. Another MTH token application is for [Dispute resolution](#dispute-resolution). More token applications are to come while using our [Reputation layer](https://github.com/monetha/reputation-layer)
 
