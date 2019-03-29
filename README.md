@@ -1,22 +1,17 @@
 # MONETHA: Decentralized Reputation Framework <!-- omit in toc -->
 
-## Payment Layer
+## Payment Layer <!-- omit in toc -->
 
-- [Payment Layer](#payment-layer)
 - [Abstract](#abstract)
-  - [Key Principles](#key-principles)
-  - [Payments Layer Design](#payments-layer-design)
-- [Actors](#actors)
-  - [Customer](#customer)
-  - [Merchant](#merchant)
-  - [Monetha](#monetha)
-- [Implementation](#implementation)
-  - [Merchant's Contracts](#merchants-contracts)
-  - [Monetha's Contracts](#monethas-contracts)
-- [De-centralized payment layer usage scenarios](#de-centralized-payment-layer-usage-scenarios)
-  - [Payment flow initiated by Customer](#payment-flow-initiated-by-customer)
-  - [Payment flow initiated by Merchant](#payment-flow-initiated-by-merchant)
-  - [Implementation examples](#implementation-examples)
+- [Payments Layer Design](#payments-layer-design)
+  - [Actors](#actors)
+  - [Implementation](#implementation)
+    - [Merchant's Contracts](#merchants-contracts)
+    - [Monetha's Contracts](#monethas-contracts)
+  - [De-centralized payment layer usage scenarios](#de-centralized-payment-layer-usage-scenarios)
+    - [Payment flow initiated by Customer](#payment-flow-initiated-by-customer)
+    - [Payment flow initiated by Merchant](#payment-flow-initiated-by-merchant)
+    - [Implementation examples](#implementation-examples)
   - [Repositories](#repositories)
 - [Token Usage and Loyalty program](#token-usage-and-loyalty-program)
   - [Paybacks](#paybacks)
@@ -36,14 +31,14 @@ The Payments layer of Monetha's Reputation Framework is a decentralized orders p
 
 Merchants (for our purposes the term includes the providers of both digital or physical goods/services) are ​able​ ​to​ ​accept​ ​Ethereum​ ​based​ ​cryptocurrencies​.
 
-### Key Principles
+### Key Principles <!-- omit in toc -->
 
 - Keep the payment process ​simple​ ​and​ cost ​efficient;
 - Make​ ​order processing transparent for Customers;
 - Make​ it easier for Merchants to ​accept ​crypto payments​;
 - Bring​ ​the​​ ​Ethereum-based​ ​​token​ ​economy​​ ​to​ ​the​ ​​mainstream.
 
-### Payments Layer Design
+## Payments Layer Design
 
 The design of the Payments layer resembles the escrow mechanism you would normally encounter in vending machines. There the customer's money is held in an "escrow area" until the transaction between the customer and the merchant, which results in an item exchange, is successfully completed. If a problem occurs and the merchant can no longer process the transaction, the customer can withdraw her funds. If no problem occurs, the funds are released to the merchant.
 
@@ -54,9 +49,9 @@ Our development is driven by the following principles:
 - User and developer friendly;
 - Improvements are driven by the community via proposals, bug bounty and other means.
 
-## Actors
+### Actors
 
-### Customer
+#### Customer <!-- omit in toc -->
 
 A person or entity that purchases goods or services. Depending on the use case this can be an application representing an entity or person. Customers:
 
@@ -65,7 +60,7 @@ A person or entity that purchases goods or services. Depending on the use case t
 - Receive a payback for each purchase. It is equal to 0.2% from the purchase amount in Monetha vouchers and can be used for applying discount for other purchases using Monetha's Payments layer;
 - Initiate the purchase flow.
 
-### Merchant
+#### Merchant <!-- omit in toc -->
 
 A person or entity that provides goods or services and would like to receive payment in an Ethereum based crypto-currency. Merchants:
 
@@ -74,7 +69,7 @@ A person or entity that provides goods or services and would like to receive pay
 - Trigger escrow to release funds in case of successful operations;
 - Have control over refunding or canceling an order.
 
-### Monetha
+#### Monetha <!-- omit in toc -->
 
 Monetha's role is to provide paybacks to Customers using the payment gateway and allow to build-up transferable reputation profile when used together with Reputation layer. Monetha:
 
@@ -82,13 +77,13 @@ Monetha's role is to provide paybacks to Customers using the payment gateway and
 - Allows the application of customer discounts without the Merchant losing funds;
 - Makes order processing flow transparent.
 
-## Implementation
+### Implementation
 
 The implementation is designed in a decentralized manner to maintain a high level of trust between the parties.
 
 ![payment-layer-concept.jpg](diagrams/payment-layer-concept.jpg)
 
-### Merchant's Contracts
+#### Merchant's Contracts
 
 - MerchantWallet:
   - Accepts payments for orders;
@@ -107,7 +102,7 @@ The implementation is designed in a decentralized manner to maintain a high leve
   - The Customer can withdraw the refund after it was refunded by Merchant
   - *Source:* [PaymentProcessor](https://github.com/monetha/payment-contracts/blob/master/contracts/PaymentProcessor.sol).
 
-### Monetha's Contracts
+#### Monetha's Contracts
 
 - MonethaGateway:
   - Ensures that Monetha receives a 1.5% fee to be able to cover paybacks and discounts;
@@ -124,7 +119,7 @@ The implementation is designed in a decentralized manner to maintain a high leve
   - Customer's and Merchant's MTH tokens needs to be staked for successful resolution
   - *Source:* [MonethaClaimHandler](https://github.com/monetha/loyalty-contracts/blob/master/contracts/MonethaClaimHandler.sol).
 
-## De-centralized payment layer usage scenarios
+### De-centralized payment layer usage scenarios
 
 Merchant can decide how to approach the order creation. `PaymentProcessor` contract allows to initiate the process by both Merchant and Customer
 
@@ -141,15 +136,15 @@ The payment flow can be initiated in 2 ways:
 - [flow initiated by Customer](#payment-flow-initiated-by-customer)
 - [flow initiated by Merchant](#payment-flow-initiated-by-merchant)
 
-### Payment flow initiated by Customer
+#### Payment flow initiated by Customer
 
 ![escrow-usage-scenario1.jpg](diagrams/escrow-usage-scenario1.jpg)
 
-### Payment flow initiated by Merchant
+#### Payment flow initiated by Merchant
 
 ![escrow-usage-scenario2.jpg](diagrams/escrow-usage-scenario2.jpg)
 
-### Implementation examples
+#### Implementation examples
 
 - Monetha's payment gateway [https://www.monetha.io/e-commerce](https://www.monetha.io/e-commerce)
 - ICO pass analyzer [website](https://icoanalyzer.monetha.io)
