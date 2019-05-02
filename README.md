@@ -258,8 +258,8 @@ In case if resolution was not sufficient a new claim can be opened either by Req
 
 | Network      | Address                                      |
 |--------------|----------------------------------------------|
-|Ropsten|[0x06eb6a5b63968157DcEbE1A50E5e89F55BceF1B8](https://etherscan.io/address/0x06eb6a5b63968157DcEbE1A50E5e89F55BceF1B8)|
-|Mainnet|TBD|
+|Ropsten|[0xCC0Ebb3086C6418f77Ba10575023dd613E08268b](https://etherscan.io/address/0xCC0Ebb3086C6418f77Ba10575023dd613E08268b)|
+|Mainnet|[0x5773Bb32CAFE05c9E128D0d37e9aDF00f29D0CBB](https://etherscan.io/address/0x5773Bb32CAFE05c9E128D0d37e9aDF00f29D0CBB)|
 
 ## Forking the Payment Layer
 
